@@ -7,27 +7,26 @@ public class FizzBuzzTest {
 
     @Test
     public void testReturnsInputNumber() {
-        fizzbuzz = new FizzBuzz(2);
-        assertEquals("2", fizzbuzz.run());
+        fizzbuzz = new FizzBuzz();
+        assertEquals("2", fizzbuzz.run(2));
     }
 
     @Test
     public void testReturnsFizzWhenNumDivisibleBy3() {
-        fizzbuzz = new FizzBuzz(3);
-        assertEquals("Fizz", fizzbuzz.run());
+        fizzbuzz = new FizzBuzz();
+        assertEquals("Fizz", fizzbuzz.run(3));
     }
 
     @Test
     public void testReturnsBuzzWhenNumDivisibleBy5() {
-        fizzbuzz = new FizzBuzz(5);
-        assertEquals("Buzz", fizzbuzz.run());
+        fizzbuzz = new FizzBuzz();
+        assertEquals("Buzz", fizzbuzz.run(5));
     }
 
     @Test
     public void testReturnsFizzBuzzWhenNumDivisibleBy3and5() {
-        fizzbuzz = new FizzBuzz(15);
-        assertEquals("FizzBuzz", fizzbuzz.run());
+        fizzbuzz = new FizzBuzz();
+        assertEquals("FizzBuzz", fizzbuzz.run(15));
     }
-
 
 }

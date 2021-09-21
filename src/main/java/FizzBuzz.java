@@ -1,6 +1,6 @@
 public class FizzBuzz {
 
-    public String run(Integer number) {
+    public String run(int number) {
         if ( number % 3 == 0 && number % 5 == 0 ) {
             return "FizzBuzz";
         } else if ( number % 3 == 0 ){

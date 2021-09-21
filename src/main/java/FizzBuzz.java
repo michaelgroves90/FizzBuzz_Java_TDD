@@ -7,13 +7,15 @@ public class FizzBuzz {
     }
 
     public String run() {
-        if ( this.number % 3 == 0 ) {
+        if ( this.number % 3 == 0 && this.number % 5 == 0 ) {
+            return "FizzBuzz";
+        } else if ( this.number % 3 == 0 ){
             return "Fizz";
         } else if ( this.number % 5 == 0 ){
             return "Buzz";
         } else {
-            String result = String.valueOf(this.number);
-            return result;
+            String noMatch = String.valueOf(this.number);
+            return noMatch;
         }
     }
 }

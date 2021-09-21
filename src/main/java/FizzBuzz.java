@@ -7,7 +7,11 @@ public class FizzBuzz {
     }
 
     public String run() {
-        String result = String.valueOf(this.number);
-        return result;
+        if ( this.number % 3 == 0 ) {
+            return "Fizz";
+        } else {
+            String result = String.valueOf(this.number);
+            return result;
+        }
     }
 }

@@ -1,4 +1,10 @@
+import java.io.File;
 import java.util.Arrays;
+import java.io.FileWriter;
+import java.io.IOException;
+import com.jamesmurty.utils.XMLBuilder2;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class FizzBuzz {
 
@@ -18,6 +24,7 @@ public class FizzBuzz {
 
     public void reportRange(int num1, int num2) {
 
+        String range = num1 + " - " + num2;
         int fizz = 0;
         int buzz = 0;
         int fizzBuzz = 0;
@@ -32,10 +39,30 @@ public class FizzBuzz {
             }
         }
         System.out.println("There are " + fizz + " Fizz, " + buzz + " Buzz, and " + fizzBuzz + " FizzBuzz.");
+        writeRangeReportToJSON(range, fizz, buzz, fizzBuzz);
+        System.out.println("Report written to JSON 'FizzBuzz/range_report.json'");
     }
 
-//    public String report() {
-//        return;
-//    }
+    public void writeRangeReportToJSON(String range, int fizzCount, int buzzCount, int fizzBuzzCount) {
+
+        JSONObject rangeReport = new JSONObject();
+        rangeReport.put("Fizz", fizzCount);
+        rangeReport.put("Buzz", buzzCount);
+        rangeReport.put("FizzBuzz", fizzBuzzCount);
+
+        JSONObject reportOne = new JSONObject();
+        reportOne.put("Range " + range, rangeReport);
+
+        JSONArray reports = new JSONArray();
+        reports.add(reportOne);
+
+        try (FileWriter file = new FileWriter("range_report.json")) {
+            file.write(reports.toJSONString());
+            file.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
